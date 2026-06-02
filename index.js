@@ -143,7 +143,7 @@ const PRICING_CONFIG = {
     max: 10000,
     step: 100,
     default: 1000,
-    rate: 0.12, // $0.12 per word
+    rate: 0.04, // RM 0.04 per word (approx RM 10/hour equivalent at 250 words/hr)
     suffix: " words"
   },
   ppt: {
@@ -152,7 +152,7 @@ const PRICING_CONFIG = {
     max: 50,
     step: 1,
     default: 10,
-    rate: 15.00, // $15 per slide
+    rate: 5.00, // RM 5.00 per slide (approx RM 10/hour equivalent at 2 slides/hr)
     suffix: " slides"
   },
   data: {
@@ -161,13 +161,20 @@ const PRICING_CONFIG = {
     max: 5000,
     step: 50,
     default: 500,
-    rate: 0.20, // $0.20 per record
+    rate: 0.05, // RM 0.05 per record (approx RM 10/hour equivalent at 200 records/hr)
     suffix: " records"
   }
 };
 
+const CURRENCY_CONFIG = {
+  MYR: { symbol: "RM ", rate: 1.0 },
+  USD: { symbol: "$", rate: 0.22 }, // 1 RM = 0.22 USD
+  SGD: { symbol: "S$", rate: 0.30 }  // 1 RM = 0.30 SGD
+};
+
 function initQuoteEstimator() {
   const selectorButtons = document.querySelectorAll('.selector-btn');
+  const currencyButtons = document.querySelectorAll('.currency-btn');
   const sliderLabel = document.getElementById('slider-label');
   const slider = document.getElementById('estimator-slider');
   const sliderVal = document.getElementById('slider-value-display');
@@ -177,6 +184,7 @@ function initQuoteEstimator() {
   if (!slider || !priceDisplay) return;
 
   let currentService = 'translation';
+  let currentCurrency = 'MYR';
 
   function updateConfig(service) {
     currentService = service;
@@ -199,17 +207,25 @@ function initQuoteEstimator() {
     const qty = parseInt(slider.value);
     sliderVal.textContent = qty.toLocaleString() + config.suffix;
     
-    const cost = qty * config.rate;
-    priceDisplay.textContent = `$${cost.toFixed(2)}`;
+    const costInMYR = qty * config.rate;
+    const currencyInfo = CURRENCY_CONFIG[currentCurrency];
+    const costConverted = costInMYR * currencyInfo.rate;
+    
+    priceDisplay.textContent = `${currencyInfo.symbol}${costConverted.toFixed(2)}`;
 
     let details = "";
     if (currentService === 'translation') {
-      details = `Estimated budget for English to Chinese/Malay translation at standard $${config.rate.toFixed(2)}/word. Includes proofreading.`;
+      details = `Estimated budget for English to Chinese/Malay translation at standard RM ${config.rate.toFixed(2)}/word. Includes proofreading.`;
     } else if (currentService === 'ppt') {
-      details = `Estimated budget for premium layout and custom slides at $${config.rate.toFixed(2)}/slide. Includes typography alignment.`;
+      details = `Estimated budget for premium layout and custom slides at RM ${config.rate.toFixed(2)}/slide. Includes typography alignment.`;
     } else {
-      details = `Estimated budget for cleaning, validation, and entry of database records at $${config.rate.toFixed(2)}/record.`;
+      details = `Estimated budget for cleaning, validation, and entry of database records at RM ${config.rate.toFixed(2)}/record.`;
     }
+    
+    if (currentCurrency !== 'MYR') {
+      details += ` (Converted from RM ${costInMYR.toFixed(2)} at approx exchange rate 1 RM = ${currencyInfo.rate} ${currentCurrency})`;
+    }
+    
     detailsDisplay.textContent = details;
   }
 
@@ -219,6 +235,15 @@ function initQuoteEstimator() {
       btn.classList.add('active');
       const service = btn.getAttribute('data-service');
       updateConfig(service);
+    });
+  });
+
+  currencyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      currencyButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentCurrency = btn.getAttribute('data-currency');
+      calculatePrice();
     });
   });
 
