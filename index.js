@@ -183,7 +183,7 @@ const I18N_DICTIONARY = {
     // Nav
     "nav-services": "服务项目",
     "nav-translation": "三语翻译",
-    "nav-carousel": "幻灯片设计",
+    "nav-carousel": "PowerPoint 设计",
     "nav-estimator": "预算估算",
     "nav-contact": "联系我",
     "nav-cta": "获取报价",
@@ -191,7 +191,7 @@ const I18N_DICTIONARY = {
     // Hero
     "hero-role": "马来西亚槟城独立自由职业者",
     "hero-title": "为您提供精准的数据处理、演示文稿设计、翻译及小型 AI 工作流服务。",
-    "hero-desc": "我协助客户清洗数据、提供英中马三语翻译、优化 PowerPoint 幻灯片，并将杂乱的文件转化为规范的输出成果。",
+    "hero-desc": "我协助客户清洗数据、提供英中马三语翻译、优化 PowerPoint，并将杂乱的文件转化为规范的输出成果。",
     "hero-typing-prefix": "现已就绪：",
     "hero-btn-primary": "评估项目",
     "hero-btn-secondary": "查看工作风格",
@@ -199,7 +199,7 @@ const I18N_DICTIONARY = {
     // Service Rail
     "rail-data": "数据录入",
     "rail-trans": "三语翻译",
-    "rail-slides": "幻灯片设计",
+    "rail-slides": "PowerPoint 设计",
     "rail-python": "Python 数据",
     
     // Mockup
@@ -214,7 +214,7 @@ const I18N_DICTIONARY = {
     "highlight-2-title": "规范交付",
     "highlight-2-desc": "每项任务都已准备好供审查、导出或交接，无需额外的二次清理。",
     "highlight-3-title": "高效工具",
-    "highlight-3-desc": "利用实用工具高效处理数据、演示幻灯片、语言翻译和自动化小脚本。",
+    "highlight-3-desc": "利用实用工具高效处理数据、PowerPoint 演示、语言翻译和自动化小脚本。",
     
     // Services Section
     "services-pre": "服务项目",
@@ -232,8 +232,8 @@ const I18N_DICTIONARY = {
     "s2-bullet-3": "马来语",
     
     "s3-title": "PowerPoint 设计",
-    "s3-desc": "为需要严谨排版的演示文稿提供商业幻灯片、页面美化、排版层级和数据可视化设计。",
-    "s3-bullet-1": "路演幻灯片",
+    "s3-desc": "为需要严谨排版的演示文稿提供商业 PowerPoint、页面美化、排版层级和数据可视化设计。",
+    "s3-bullet-1": "路演 PowerPoint",
     "s3-bullet-2": "企业汇报",
     "s3-bullet-3": "图表与视觉效果",
     
@@ -254,8 +254,8 @@ const I18N_DICTIONARY = {
     "trans-label-ms": "马来文译文",
     
     // Slides Carousel
-    "slides-pre": "PowerPoint 幻灯片布局",
-    "slides-title": "适用于商业演示、业务工作流和数据故事的幻灯片结构。",
+    "slides-pre": "PowerPoint 布局",
+    "slides-title": "适用于商业演示、业务工作流和数据故事的 PowerPoint 结构。",
     "slide1-tracker": "市场评估",
     "slide1-title": "区域需求旺盛，增长势头明确。",
     "slide1-desc": "对区域增长参数的分析表明，在本地化运营规模扩大的推动下，财政年末的需求曲线强劲。",
@@ -281,7 +281,7 @@ const I18N_DICTIONARY = {
     "slide2-chart-title": "各服务收入占比",
     "slide2-donut-center-label": "达成目标",
     "slide2-legend-1": "三语翻译 (38%)",
-    "slide2-legend-2": "幻灯片设计 (26%)",
+    "slide2-legend-2": "PowerPoint 设计 (26%)",
     "slide2-legend-3": "数据录入 (18%)",
     "slide2-legend-4": "Python 数据 (18%)",
     
@@ -296,7 +296,7 @@ const I18N_DICTIONARY = {
     
     "slide3-badge2": "第二阶段",
     "slide3-card2-title": "版式设计与打磨",
-    "slide3-card2-desc": "应用核心设计系统、翻译源材料、设计 CSS 数据图表并设置宽屏幻灯片边距。",
+    "slide3-card2-desc": "应用核心设计系统、翻译源材料、设计 CSS 数据图表并设置宽屏 PowerPoint 边距。",
     "slide3-card2-b1": "排版层级网格",
     "slide3-card2-b2": "三语翻译精准匹配",
     
@@ -311,7 +311,7 @@ const I18N_DICTIONARY = {
     "calc-title": "在您留言前，快速获取初步项目预算。",
     "calc-service-label": "选择服务项目",
     "calc-opt-translation": "三语翻译",
-    "calc-opt-ppt": "幻灯片设计",
+    "calc-opt-ppt": "PowerPoint 设计",
     "calc-opt-data": "数据录入",
     "calc-qty-label": "数量",
     "calc-currency-label": "选择货币",
@@ -328,7 +328,7 @@ const I18N_DICTIONARY = {
     "contact-label-location": "工作地点",
     "contact-val-location": "马来西亚槟城 (MYT)",
     "contact-label-services": "服务项目",
-    "contact-val-services": "三语翻译、数据录入、PowerPoint设计、Python数据分析",
+    "contact-val-services": "三语翻译、数据录入、PowerPoint 设计、Python数据分析",
     "form-guide-title": "建议留言格式",
     "form-guide-desc": "请告诉我服务类型、源文件、目标格式、截止日期、预算范围以及交付验收标准。",
     "form-label-name": "您的姓名 *",
@@ -336,13 +336,13 @@ const I18N_DICTIONARY = {
     "form-label-msg": "项目描述 *",
     "form-ph-name": "您的姓名",
     "form-ph-email": "you@example.com",
-    "form-ph-msg": "请描述您的文件格式、源语言、幻灯片数量、数据行数、截止日期以及期望交付成果。",
+    "form-ph-msg": "请描述您的文件格式、源语言、PowerPoint数量、数据行数、截止日期以及期望交付成果。",
     "form-submit-btn": "生成邮件咨询",
     
     // Chatbot
     "chat-title": "联系助手",
     "chat-welcome-desc": "请告诉我您的服务类型、文件格式、截止日期和验收标准。我可以为您生成一封发送给 Je Yen 的规范邮件。",
-    "chat-ph-input": "例如：周五前完成一份12页的幻灯片",
+    "chat-ph-input": "例如：周五前完成一份12页的 PowerPoint",
     "chat-send-btn": "发送"
   }
 };
@@ -408,7 +408,7 @@ function initTypingAnimation() {
     ],
     zh: [
       "数据清洗",
-      "PowerPoint 幻灯片设计",
+      "PowerPoint 设计",
       "英中马三语翻译",
       "Python 数据技术支持"
     ]
