@@ -8,16 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollRevealFallback();
   initChatbotWidget();
-  initMacbookMockup();
+  initWorkstationMockup();
 });
 
 // 1. Typing Animation
 function initTypingAnimation() {
   const words = [
-    "Data Entry Specialist",
-    "PowerPoint (PPT) Designer",
-    "English-Chinese-Malay Translator",
-    "Python Data Scientist"
+    "data cleanup",
+    "PowerPoint slide design",
+    "English-Chinese-Malay translation",
+    "Python data support"
   ];
   let wordIndex = 0;
   let charIndex = 0;
@@ -109,6 +109,8 @@ function initSlideCarousel() {
   const slides = document.querySelectorAll('.slide');
   const arrowLeft = document.querySelector('.arrow-left');
   const arrowRight = document.querySelector('.arrow-right');
+  const slideCounter = document.getElementById('slide-counter');
+  const slideDots = document.querySelectorAll('.slide-dot');
   
   if (!slider || slides.length === 0) return;
 
@@ -123,6 +125,12 @@ function initSlideCarousel() {
       currentIndex = index;
     }
     slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (slideCounter) {
+      slideCounter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+    }
+    slideDots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('active', dotIndex === currentIndex);
+    });
   }
 
   if (arrowLeft) {
@@ -131,11 +139,22 @@ function initSlideCarousel() {
   if (arrowRight) {
     arrowRight.addEventListener('click', () => goToSlide(currentIndex + 1));
   }
+  slideDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const slideIndex = Number(dot.getAttribute('data-slide'));
+      if (!Number.isNaN(slideIndex)) {
+        goToSlide(slideIndex);
+      }
+    });
+  });
 
-  // Auto-slide every 5 seconds
-  setInterval(() => {
-    goToSlide(currentIndex + 1);
-  }, 5000);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 6000);
+  }
+
+  goToSlide(0);
 }
 
 // 4. Quote Estimator
@@ -273,7 +292,11 @@ function initContactForm() {
       return;
     }
 
-    alert(`Thank you, ${name}! Your inquiry has been sent. Je Yen Tan will get back to you shortly.`);
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nProject details:\n${message}`
+    );
+    window.location.href = `mailto:jeyentan@gmail.com?subject=${subject}&body=${body}`;
     form.reset();
   });
 }
@@ -282,7 +305,7 @@ function initContactForm() {
 function initScrollRevealFallback() {
   if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
     const revealElements = document.querySelectorAll(
-      '.glass-card, .translator-panel, .slider-container, .estimator-layout, .contact-info, .form-card'
+      '.quality-strip, .service-item, .translator-panel, .slider-container, .estimator-layout, .contact-container'
     );
     
     const observerOptions = {
@@ -360,7 +383,19 @@ function initChatbotWidget() {
     showTypingIndicator();
 
     try {
-      const response = await fetch('http://localhost:8787/v1/portfolio/chat', {
+      const endpoint = window.PORTFOLIO_CHAT_ENDPOINT;
+
+      if (!endpoint) {
+        hideTypingIndicator();
+        appendMessage(
+          'agent',
+          'Thanks. For the fastest reply, use the contact form or email jeyentan@gmail.com with your files, deadline, and expected output.',
+          true
+        );
+        return;
+      }
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, message: text })
@@ -388,9 +423,9 @@ function initChatbotWidget() {
 
   // 5. Short Polling Loop for human replies from Discord
   async function pollForReplies() {
-    if (!widget.classList.contains('active')) return;
+    if (!widget.classList.contains('active') || !window.PORTFOLIO_CHAT_POLL_ENDPOINT) return;
     try {
-      const response = await fetch(`http://localhost:8787/v1/portfolio/chat/poll?session_id=${sessionId}`);
+      const response = await fetch(`${window.PORTFOLIO_CHAT_POLL_ENDPOINT}?session_id=${encodeURIComponent(sessionId)}`);
       const data = await response.json();
       if (data.ok && data.replies && data.replies.length > 0) {
         data.replies.forEach(reply => {
@@ -448,21 +483,27 @@ function initChatbotWidget() {
   }
 }
 
-// 8. MacBook Neo Mockup Animation
-function initMacbookMockup() {
+// 8. Workstation Mockup Animation
+function initWorkstationMockup() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const lid = document.querySelector('.laptop-lid');
+    if (lid) lid.style.transform = 'rotateX(0deg)';
+    return;
+  }
+
   setTimeout(() => {
-    const lid = document.querySelector('.macbook-lid');
+    const lid = document.querySelector('.laptop-lid');
     if (lid) {
       lid.style.transform = 'rotateX(0deg)';
     }
   }, 600);
 
   window.addEventListener('scroll', () => {
-    const mockup = document.getElementById('macbook-neo');
+    const mockup = document.getElementById('workstation-preview');
     if (!mockup) return;
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const rotationX = 12 + Math.min(30, scrollTop * 0.05);
-    const rotationY = Math.min(20, scrollTop * 0.04) - Math.min(10, scrollTop * 0.02);
-    mockup.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    const lift = Math.min(24, scrollTop * 0.035);
+    const rotateZ = -7 + Math.min(5, scrollTop * 0.004);
+    mockup.style.transform = `rotateX(${58 - lift}deg) rotateZ(${rotateZ}deg) translateY(${Math.min(22, scrollTop * 0.03)}px)`;
   });
 }
