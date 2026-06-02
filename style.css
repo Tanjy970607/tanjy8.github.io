@@ -725,6 +725,10 @@ h1 {
 .slider-container {
   position: relative;
   overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: 0 24px 64px var(--shadow);
 }
 
 .slides {
@@ -732,102 +736,651 @@ h1 {
   transition: transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Widescreen Keynote Slide Design */
 .slide {
   min-width: 100%;
-  min-height: 370px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 28px;
-  padding: clamp(28px, 5vw, 58px);
-  background: linear-gradient(135deg, rgba(36, 200, 255, 0.08), rgba(255, 255, 255, 0.02));
-}
-
-.slide-copy h3 {
-  margin-top: 8px;
-  max-width: 430px;
-  font-size: clamp(2rem, 4vw, 3.35rem);
-  line-height: 1.02;
-}
-
-.slide-metrics,
-.report-table {
-  display: grid;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.slide-metrics span,
-.report-table {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 14px;
-  color: var(--muted);
-}
-
-.slide-metrics strong,
-.report-table strong {
-  color: var(--text);
-  font-size: 1.2rem;
-}
-
-.bar-chart {
   display: flex;
-  align-items: end;
-  justify-content: center;
-  gap: 18px;
-  min-height: 230px;
-  transform: skewX(-8deg);
-}
-
-.bar-chart i {
-  width: 42px;
-  border-radius: 8px 8px 4px 4px;
-  background: linear-gradient(180deg, var(--cyan), rgba(36, 200, 255, 0.1));
-}
-
-.bar-chart i:nth-child(1) { height: 74px; }
-.bar-chart i:nth-child(2) { height: 112px; }
-.bar-chart i:nth-child(3) { height: 142px; }
-.bar-chart i:nth-child(4) { height: 178px; }
-.bar-chart i:nth-child(5) { height: 220px; background: linear-gradient(180deg, var(--lime), rgba(183, 255, 60, 0.12)); }
-
-.donut-chart {
-  width: min(260px, 55vw);
-  aspect-ratio: 1;
-  justify-self: center;
-  border-radius: 50%;
-  background: conic-gradient(var(--cyan) 0 38%, var(--lime) 38% 64%, #2f6dff 64% 82%, rgba(255, 255, 255, 0.12) 82% 100%);
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 42px;
+  background: linear-gradient(135deg, #090d15 0%, #06090e 100%);
   position: relative;
+  overflow: hidden;
 }
 
-.donut-chart::after {
-  content: "";
-  position: absolute;
-  inset: 27%;
-  border-radius: inherit;
-  background: #080c11;
+@media (min-width: 1024px) {
+  .slide {
+    aspect-ratio: 16 / 9;
+    min-height: 480px;
+  }
 }
 
-.timeline-line {
+@media (max-width: 1023px) {
+  .slide {
+    min-height: auto;
+    padding: 24px 20px;
+    gap: 24px;
+  }
+}
+
+/* Slide Header */
+.slide-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 520px;
-  height: 120px;
-  margin-top: 42px;
-  border-top: 2px solid rgba(36, 200, 255, 0.45);
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
 }
 
-.timeline-line span {
-  width: 18px;
-  height: 18px;
-  transform: translateY(-11px);
-  border: 2px solid var(--cyan);
+.slide-tracker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--cyan);
+  letter-spacing: 1.5px;
+}
+
+.slide-branding {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--subtle);
+}
+
+/* Slide Body */
+.slide-body {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  flex-grow: 1;
+  align-items: center;
+  width: 100%;
+}
+
+.slide-body-full {
+  grid-template-columns: 1fr;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .slide-body {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+.slide-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.slide-copy h3 {
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.slide-desc {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.slide-bullets {
+  list-style: none;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slide-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.bullet-check {
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+/* Slide Metric Cards */
+.slide-metrics-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.slide-metric-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.slide-metric-card:hover {
+  border-color: rgba(36, 200, 255, 0.25);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.metric-label {
+  font-size: 0.62rem;
+  color: var(--subtle);
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--mono);
+}
+
+.metric-trend {
+  font-size: 0.68rem;
+  color: var(--lime);
+  font-family: var(--mono);
+}
+
+/* Slide Visual Section */
+.slide-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-chart-container {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.chart-header-mini {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--subtle);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  border-left: 2px solid var(--cyan);
+  padding-left: 8px;
+}
+
+/* Premium Bar Chart (Widescreen Keynote style) */
+.bar-chart-w-labels {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.bar-chart-gridlines {
+  position: absolute;
+  inset: 0 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.bar-chart-gridlines span {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bar-chart-bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+  padding: 0 6px 24px 6px;
+  z-index: 1;
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 15%;
+  height: 100%;
+  justify-content: flex-end;
+  cursor: pointer;
+  position: relative;
+}
+
+.bar-fill {
+  width: 100%;
+  border-radius: 4px 4px 1px 1px;
+  background: linear-gradient(to top, rgba(36, 200, 255, 0.05), var(--cyan));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bar-fill.highlight {
+  background: linear-gradient(to top, rgba(183, 255, 60, 0.15), var(--lime));
+}
+
+.bar-value {
+  font-size: 0.68rem;
+  font-family: var(--mono);
+  color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bar-value.highlight {
+  color: var(--lime);
+  font-weight: 700;
+}
+
+.bar-label {
+  font-size: 0.65rem;
+  font-family: var(--mono);
+  color: var(--subtle);
+  position: absolute;
+  bottom: -20px;
+  text-wrap: nowrap;
+}
+
+.bar-group:hover .bar-fill {
+  filter: brightness(1.2);
+  transform: scaleX(1.08);
+}
+
+.bar-group:hover .bar-value {
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+/* Premium Table Layout for Slide 2 */
+.slide-table-wrapper {
+  margin-top: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.8rem;
+}
+
+.slide-table th {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--subtle);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  letter-spacing: 0.5px;
+}
+
+.slide-table td {
+  padding: 9px 12px;
+  color: var(--text);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.slide-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.bold-text {
+  font-weight: 700;
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+.trend-green {
+  color: var(--lime);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.trend-red {
+  color: #ff5e7e;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* SVG Donut Chart for Slide 2 */
+.donut-chart-wrapper {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-segment {
+  transition: stroke-width 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.donut-segment:hover {
+  stroke-width: 25px;
+  filter: brightness(1.15);
+}
+
+.donut-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donut-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  font-family: var(--mono);
+  color: var(--text);
+  line-height: 1;
+}
+
+.donut-label {
+  font-size: 0.58rem;
+  color: var(--subtle);
+  text-transform: uppercase;
+  font-family: var(--mono);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.donut-legend {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+  margin-top: 14px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.legend-dot.segment-1 { background-color: var(--cyan); }
+.legend-dot.segment-2 { background-color: var(--lime); }
+.legend-dot.segment-3 { background-color: var(--blue); }
+.legend-dot.segment-4 { background-color: var(--green); }
+
+/* Slide 3: Roadmap Cards Layout */
+.slide-full-header {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.slide-full-header h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.slide-full-header .slide-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.roadmap-cards-wrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 24px;
+  padding: 8px 0;
+}
+
+.roadmap-line-bg {
+  position: absolute;
+  top: 18px;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  z-index: 0;
+}
+
+.roadmap-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .roadmap-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .roadmap-line-bg {
+    display: none;
+  }
+}
+
+.roadmap-card {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.roadmap-card::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  border: 2px solid #05080d;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.03);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .roadmap-card::before {
+    display: none;
+  }
+}
+
+.roadmap-card.completed {
+  border-color: rgba(33, 216, 155, 0.2);
+  background: linear-gradient(180deg, rgba(33, 216, 155, 0.02), rgba(255, 255, 255, 0.005));
+}
+
+.roadmap-card.completed::before {
+  background: var(--green);
+  box-shadow: 0 0 0 6px rgba(33, 216, 155, 0.12);
+}
+
+.roadmap-card.active-card {
+  border-color: rgba(36, 200, 255, 0.28);
+  background: linear-gradient(180deg, rgba(36, 200, 255, 0.04), rgba(255, 255, 255, 0.005));
+}
+
+.roadmap-card.active-card::before {
+  background: var(--cyan);
+  box-shadow: 0 0 0 6px rgba(36, 200, 255, 0.18);
+}
+
+.roadmap-card.upcoming {
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+.roadmap-card.upcoming::before {
+  background: var(--subtle);
+}
+
+.roadmap-card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-4px);
+}
+
+.roadmap-card.completed:hover {
+  border-color: rgba(33, 216, 155, 0.35);
+}
+
+.roadmap-card.active-card:hover {
+  border-color: rgba(36, 200, 255, 0.45);
+}
+
+.card-indicator {
+  display: none;
+}
+
+.card-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.status-badge {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 7px;
   border-radius: 999px;
-  background: #05070a;
-  box-shadow: 0 0 0 7px rgba(36, 200, 255, 0.08);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.green-badge {
+  background: rgba(33, 216, 155, 0.12);
+  color: var(--green);
+}
+
+.status-badge.blue-badge {
+  background: rgba(36, 200, 255, 0.12);
+  color: var(--cyan);
+}
+
+.status-badge.gray-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--subtle);
+}
+
+.status-date {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--subtle);
+}
+
+.roadmap-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.roadmap-card p {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.card-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 8px;
+  margin-top: auto;
+}
+
+.card-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.check-icon {
+  color: var(--lime);
+}
+
+.uncheck-icon {
+  color: var(--subtle);
+}
+
+/* Slide Footer */
+.slide-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 10px;
+  margin-top: 16px;
+}
+
+.slide-classification {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--subtle);
+  letter-spacing: 1px;
+}
+
+.slide-number {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  color: var(--subtle);
 }
 
 .carousel-status {
