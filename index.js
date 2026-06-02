@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollRevealFallback();
   initChatbotWidget();
+  initMacbookMockup();
 });
 
 // 1. Typing Animation
@@ -445,4 +446,23 @@ function initChatbotWidget() {
   function scrollToBottom() {
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
+}
+
+// 8. MacBook Neo Mockup Animation
+function initMacbookMockup() {
+  setTimeout(() => {
+    const lid = document.querySelector('.macbook-lid');
+    if (lid) {
+      lid.style.transform = 'rotateX(0deg)';
+    }
+  }, 600);
+
+  window.addEventListener('scroll', () => {
+    const mockup = document.getElementById('macbook-neo');
+    if (!mockup) return;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const rotationX = 12 + Math.min(30, scrollTop * 0.05);
+    const rotationY = Math.min(20, scrollTop * 0.04) - Math.min(10, scrollTop * 0.02);
+    mockup.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+  });
 }
