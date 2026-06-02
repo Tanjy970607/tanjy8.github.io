@@ -290,7 +290,7 @@ const I18N_DICTIONARY = {
     "slide3-desc": "包含客户数据导入、清洗、布局格式化和自动化验证规则的详细步骤方法。",
     "slide3-badge1": "第一阶段",
     "slide3-card1-title": "数据导入与审计",
-    "slide3-card1-desc": "导入原始数据集、检测重复条目、识别翻译歧义，并锁定幻灯片内容大纲。",
+    "slide3-card1-desc": "导入原始数据集、检测重复条目、识别翻译歧义，并锁定 PowerPoint 内容大纲。",
     "slide3-card1-b1": "查重与数据结构审计",
     "slide3-card1-b2": "源数据验证检查",
     
@@ -567,7 +567,7 @@ const PRICING_CONFIG = {
     suffix: { en: " words", zh: " 字" }
   },
   ppt: {
-    label: { en: "Number of Slides", zh: "幻灯片页数" },
+    label: { en: "Number of Slides", zh: "PowerPoint 页数" },
     min: 3,
     max: 50,
     step: 1,
@@ -647,7 +647,7 @@ function initQuoteEstimator() {
     } else if (currentService === 'ppt') {
       details = lang === 'en'
         ? `Estimated budget for premium layout and custom slides at RM ${config.rate.toFixed(2)}/slide. Includes typography alignment.`
-        : `标准费率 RM ${config.rate.toFixed(2)}/页，演示幻灯片排版与定制设计估算预算。包含排版对齐。`;
+        : `标准费率 RM ${config.rate.toFixed(2)}/页，PowerPoint 排版与定制设计估算预算。包含排版对齐。`;
     } else {
       details = lang === 'en'
         ? `Estimated budget for cleaning, validation, and entry of database records at RM ${config.rate.toFixed(2)}/record.`
