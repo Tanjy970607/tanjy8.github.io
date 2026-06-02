@@ -18,56 +18,63 @@
         <span>Je Yen Tan</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#translation">Translation</a>
-        <a href="#carousel">Slides</a>
-        <a href="#estimator">Estimate</a>
-        <a href="#contact">Contact</a>
+        <a href="#services" data-i18n="nav-services">Services</a>
+        <a href="#translation" data-i18n="nav-translation">Translation</a>
+        <a href="#carousel" data-i18n="nav-carousel">Slides</a>
+        <a href="#estimator" data-i18n="nav-estimator">Estimate</a>
+        <a href="#contact" data-i18n="nav-contact">Contact</a>
       </nav>
-      <a href="#contact" class="cta-btn">Request quote</a>
+      <div class="header-right">
+        <div class="lang-selector" aria-label="Select language">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang="zh">中</button>
+        </div>
+        <a href="#contact" class="cta-btn" data-i18n="nav-cta">Request quote</a>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" id="hero">
       <div class="hero-copy">
-        <p class="role-line">Independent freelancer in Penang, Malaysia</p>
-        <h1>Precision work for data, decks, translation, and small AI workflows.</h1>
-        <p class="hero-lede">
+        <p class="role-line" data-i18n="hero-role">Independent freelancer in Penang, Malaysia</p>
+        <h1 data-i18n="hero-title">Precision work for data, decks, translation, and small AI workflows.</h1>
+        <p class="hero-lede" data-i18n="hero-desc">
           I help clients clean information, translate English, Chinese, and Malay content, shape PowerPoint slides, and turn messy files into usable outputs.
         </p>
         <div class="typing-container" aria-live="polite">
-          <span>Now ready for</span>
+          <span data-i18n="hero-typing-prefix">Now ready for</span>
           <strong id="typing-text"></strong><span class="cursor" aria-hidden="true"></span>
         </div>
         <div class="hero-actions">
-          <a href="#estimator" class="btn-primary">Estimate project</a>
-          <a href="#carousel" class="btn-secondary">View work style</a>
+          <a href="#estimator" class="btn-primary" data-i18n="hero-btn-primary">Estimate project</a>
+          <a href="#carousel" class="btn-secondary" data-i18n="hero-btn-secondary">View work style</a>
         </div>
         <div class="service-rail" aria-label="Core services">
           <div>
             <span class="rail-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 5.5h16M4 12h16M4 18.5h16M8 3v18M16 3v18"/></svg>
             </span>
-            <span>Data entry</span>
+            <span data-i18n="rail-data">Data entry</span>
           </div>
           <div>
             <span class="rail-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M5 5h7v7H5zM12 19l5-10 5 10M14 16h5M3 19c4-2 7-5 8-11"/></svg>
             </span>
-            <span>Translation</span>
+            <span data-i18n="rail-trans">Translation</span>
           </div>
           <div>
             <span class="rail-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 15v-4M12 15V8M16 15v-7"/></svg>
             </span>
-            <span>Slide design</span>
+            <span data-i18n="rail-slides">Slide design</span>
           </div>
           <div>
             <span class="rail-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
             </span>
-            <span>Python data</span>
+            <span data-i18n="rail-python">Python data</span>
           </div>
         </div>
       </div>
@@ -92,17 +99,17 @@
                 </aside>
                 <div class="screen-main">
                   <div class="screen-card wide">
-                    <p>Task queue</p>
-                    <strong>Ready for review</strong>
+                    <p data-i18n="mockup-queue">Task queue</p>
+                    <strong data-i18n="mockup-status">Ready for review</strong>
                     <div class="chart-line"></div>
                   </div>
                   <div class="screen-grid">
                     <div class="screen-card">
-                      <p>Accuracy</p>
+                      <p data-i18n="mockup-accuracy">Accuracy</p>
                       <strong>99.8%</strong>
                     </div>
                     <div class="screen-card">
-                      <p>Languages</p>
+                      <p data-i18n="mockup-lang">Languages</p>
                       <strong>EN / ZH / MS</strong>
                     </div>
                   </div>
@@ -125,73 +132,73 @@
     <section class="quality-strip" aria-label="Work highlights">
       <div>
         <span>01</span>
-        <strong>Scope first</strong>
-        <p>Files, format, deadline, and acceptance criteria are checked before work starts.</p>
+        <strong data-i18n="highlight-1-title">Scope first</strong>
+        <p data-i18n="highlight-1-desc">Files, format, deadline, and acceptance criteria are checked before work starts.</p>
       </div>
       <div>
         <span>02</span>
-        <strong>Clean output</strong>
-        <p>Every task is prepared for review, export, or handoff without extra cleanup.</p>
+        <strong data-i18n="highlight-2-title">Clean output</strong>
+        <p data-i18n="highlight-2-desc">Every task is prepared for review, export, or handoff without extra cleanup.</p>
       </div>
       <div>
         <span>03</span>
-        <strong>Local workflow</strong>
-        <p>Data, slides, translation, and small scripts are handled with practical tools.</p>
+        <strong data-i18n="highlight-3-title">Local workflow</strong>
+        <p data-i18n="highlight-3-desc">Data, slides, translation, and small scripts are handled with practical tools.</p>
       </div>
     </section>
 
     <section id="services" class="section-block">
       <div class="section-heading">
-        <p>Services</p>
-        <h2>Built for jobs that need accuracy, clear language, and clean presentation.</h2>
+        <p data-i18n="services-pre">Services</p>
+        <h2 data-i18n="services-title">Built for jobs that need accuracy, clear language, and clean presentation.</h2>
       </div>
       <div class="service-list">
         <article class="service-item featured">
           <div class="service-index">01</div>
           <div>
-            <h3>High-volume data entry</h3>
-            <p>Spreadsheet cleanup, record entry, duplicate checks, validation, and table formatting for Excel or Google Sheets.</p>
+            <h3 data-i18n="s1-title">High-volume data entry</h3>
+            <p data-i18n="s1-desc">Spreadsheet cleanup, record entry, duplicate checks, validation, and table formatting for Excel or Google Sheets.</p>
           </div>
           <ul>
-            <li>Data collection and input</li>
-            <li>Cleaning and validation</li>
-            <li>Excel and Google Sheets</li>
+            <li data-i18n="s1-bullet-1">Data collection and input</li>
+            <li data-i18n="s1-bullet-2">Cleaning and validation</li>
+            <li data-i18n="s1-bullet-3">Excel and Google Sheets</li>
           </ul>
         </article>
         <article class="service-item">
           <div class="service-index">02</div>
           <div>
-            <h3>Trilingual translation</h3>
-            <p>Natural translation across English, Chinese, and Malay for documents, websites, business copy, and instructions.</p>
+            <h3 data-i18n="s2-title">Trilingual translation</h3>
+            <p data-i18n="s2-desc">Natural translation across English, Chinese, and Malay for documents, websites, business copy, and instructions.</p>
           </div>
           <ul>
-            <li>English</li>
-            <li>Chinese</li>
-            <li>Bahasa Melayu</li>
+            <li data-i18n="s2-bullet-1">English</li>
+            <li data-i18n="s2-bullet-2">Chinese</li>
+            <li data-i18n="s2-bullet-3">Bahasa Melayu</li>
           </ul>
         </article>
         <article class="service-item">
           <div class="service-index">03</div>
           <div>
-            <h3>PowerPoint design</h3>
-            <p>Business decks, slide cleanup, layout hierarchy, and data visuals for presentations that need to look organized.</p>
+            <h3 data-i18n="s3-title">PowerPoint design</h3>
+            <p data-i18n="s3-desc">Business decks, slide cleanup, layout hierarchy, and data visuals for presentations that need to look organized.</p>
           </div>
           <ul>
-            <li>Pitch decks</li>
-            <li>Corporate slides</li>
-            <li>Charts and visuals</li>
+            <li data-i18n="s3-bullet-1">Pitch decks</li>
+            <li data-i18n="s3-bullet-2">Corporate slides</li>
+            <li data-i18n="s3-bullet-3">Charts and visuals</li>
           </ul>
         </article>
         <article class="service-item">
           <div class="service-index">04</div>
           <div>
-            <h3>Python data science</h3>
-            <p>Small analysis scripts, pandas workflows, charts, and reports for clients who need quick technical support.</p>
+            <h3 data-i18n="s4-title">Python data science</h3>
+            <p data-i18n="s4-desc">Small analysis scripts, pandas workflows, charts, and reports for clients who need quick technical support.</p>
           </div>
           <ul>
-            <li>pandas and NumPy</li>
-            <li>Data visualization</li>
-            <li>Report support</li>
+            <li data-i18n="s4-bullet-1">pandas and NumPy</li>
+            <li data-i18n="s4-bullet-2">Data visualization</li>
+            <li data-i18n="s4-bullet-3">Report support</li>
           </ul>
         </article>
       </div>
@@ -200,31 +207,31 @@
     <section id="translation" class="section-block">
       <div class="section-heading split">
         <div>
-          <p>Translation showcase</p>
-          <h2>Compare meaning across English, Chinese, and Malay.</h2>
+          <p data-i18n="trans-pre">Translation showcase</p>
+          <h2 data-i18n="trans-title">Compare meaning across English, Chinese, and Malay.</h2>
         </div>
         <div class="phrase-triggers" aria-label="Translation examples">
-          <button class="phrase-btn active" data-phrase="welcome">Welcome text</button>
-          <button class="phrase-btn" data-phrase="instructions">Instructions</button>
-          <button class="phrase-btn" data-phrase="completion">Completion status</button>
+          <button class="phrase-btn active" data-phrase="welcome" data-i18n="trans-btn-welcome">Welcome text</button>
+          <button class="phrase-btn" data-phrase="instructions" data-i18n="trans-btn-inst">Instructions</button>
+          <button class="phrase-btn" data-phrase="completion" data-i18n="trans-btn-complete">Completion status</button>
         </div>
       </div>
       <div class="translator-panel">
         <div class="translator-box source-box">
           <div class="translator-header">
-            <span class="lang-label">English source</span>
+            <span class="lang-label" data-i18n="trans-label-en">English source</span>
           </div>
           <textarea class="translation-content" id="source-text" readonly aria-label="English source text"></textarea>
         </div>
         <div class="translator-box">
           <div class="translator-header">
-            <span class="lang-label">Chinese output</span>
+            <span class="lang-label" data-i18n="trans-label-zh">Chinese output</span>
           </div>
           <div class="translated-copy" id="target-zh"></div>
         </div>
         <div class="translator-box">
           <div class="translator-header">
-            <span class="lang-label">Malay output</span>
+            <span class="lang-label" data-i18n="trans-label-ms">Malay output</span>
           </div>
           <div class="translated-copy" id="target-ms"></div>
         </div>
@@ -234,8 +241,8 @@
     <section id="carousel" class="section-block slide-section">
       <div class="section-heading split">
         <div>
-          <p>PowerPoint slide layouts</p>
-          <h2>Slide structures for business, workflow, and data stories.</h2>
+          <p data-i18n="slides-pre">PowerPoint slide layouts</p>
+          <h2 data-i18n="slides-title">Slide structures for business, workflow, and data stories.</h2>
         </div>
         <div class="carousel-status" aria-live="polite">
           <span id="slide-counter">01 / 03</span>
@@ -247,36 +254,36 @@
           <!-- Slide 1: Market Opportunity -->
           <article class="slide slide-market">
             <div class="slide-header">
-              <span class="slide-tracker">MARKET ASSESSMENT</span>
+              <span class="slide-tracker" data-i18n="slide1-tracker">MARKET ASSESSMENT</span>
               <span class="slide-branding">Je Yen Tan • Presentation Studio</span>
             </div>
             
             <div class="slide-body">
               <div class="slide-copy">
-                <h3>Regional demand, clear momentum.</h3>
-                <p class="slide-desc">Analysis of regional growth parameters indicates robust demand curves heading into fiscal year-end, driven by localized operations scaling.</p>
+                <h3 data-i18n="slide1-title">Regional demand, clear momentum.</h3>
+                <p class="slide-desc" data-i18n="slide1-desc">Analysis of regional growth parameters indicates robust demand curves heading into fiscal year-end, driven by localized operations scaling.</p>
                 <ul class="slide-bullets">
-                  <li><span class="bullet-check">✓</span> Driven by high-volume service localization</li>
-                  <li><span class="bullet-check">✓</span> Verified market size metrics in primary sectors</li>
-                  <li><span class="bullet-check">✓</span> Operational readiness targets met ahead of schedule</li>
+                  <li><span class="bullet-check">✓</span> <span data-i18n="slide1-bullet-1">Driven by high-volume service localization</span></li>
+                  <li><span class="bullet-check">✓</span> <span data-i18n="slide1-bullet-2">Verified market size metrics in primary sectors</span></li>
+                  <li><span class="bullet-check">✓</span> <span data-i18n="slide1-bullet-3">Operational readiness targets met ahead of schedule</span></li>
                 </ul>
                 <div class="slide-metrics-row">
                   <div class="slide-metric-card">
-                    <span class="metric-label">TAM (Total Addressable Market)</span>
+                    <span class="metric-label" data-i18n="slide1-tam">TAM (Total Addressable Market)</span>
                     <span class="metric-value">RM 4.2B</span>
-                    <span class="metric-trend">↑ 18% YoY growth</span>
+                    <span class="metric-trend" data-i18n="slide1-growth">↑ 18% YoY growth</span>
                   </div>
                   <div class="slide-metric-card">
-                    <span class="metric-label">SAM (Serviceable Market)</span>
+                    <span class="metric-label" data-i18n="slide1-sam">SAM (Serviceable Market)</span>
                     <span class="metric-value">RM 850M</span>
-                    <span class="metric-trend">↑ 22% CAGR</span>
+                    <span class="metric-trend" data-i18n="slide1-cagr">↑ 22% CAGR</span>
                   </div>
                 </div>
               </div>
               
               <div class="slide-visual">
                 <div class="slide-chart-container">
-                  <div class="chart-header-mini">PROJECTED SECTOR REVENUE GROWTH (MYR)</div>
+                  <div class="chart-header-mini" data-i18n="slide1-chart-title">PROJECTED SECTOR REVENUE GROWTH (MYR)</div>
                   <div class="bar-chart-w-labels" aria-hidden="true">
                     <div class="bar-chart-gridlines">
                       <span></span>
@@ -325,41 +332,41 @@
           <!-- Slide 2: Q2 Performance -->
           <article class="slide slide-report">
             <div class="slide-header">
-              <span class="slide-tracker">OPERATIONAL PERFORMANCE</span>
+              <span class="slide-tracker" data-i18n="slide2-tracker">OPERATIONAL PERFORMANCE</span>
               <span class="slide-branding">Je Yen Tan • Presentation Studio</span>
             </div>
             
             <div class="slide-body">
               <div class="slide-copy">
-                <h3>Highlights with one clean read.</h3>
-                <p class="slide-desc">Financial summaries show robust operational margins, exceeding baseline parameters for key performance indicators in Q2.</p>
+                <h3 data-i18n="slide2-title">Highlights with one clean read.</h3>
+                <p class="slide-desc" data-i18n="slide2-desc">Financial summaries show robust operational margins, exceeding baseline parameters for key performance indicators in Q2.</p>
                 <div class="slide-table-wrapper">
                   <table class="slide-table">
                     <thead>
                       <tr>
-                        <th>KPI Metric</th>
-                        <th>Q2 Performance</th>
-                        <th>Vs Target</th>
+                        <th data-i18n="slide2-th-metric">KPI Metric</th>
+                        <th data-i18n="slide2-th-perf">Q2 Performance</th>
+                        <th data-i18n="slide2-th-target">Vs Target</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Revenue Growth</td>
+                        <td data-i18n="slide2-td-rev">Revenue Growth</td>
                         <td class="bold-text">+21.6%</td>
                         <td class="trend-green">▲ +3.2%</td>
                       </tr>
                       <tr>
-                        <td>Orders Processed</td>
+                        <td data-i18n="slide2-td-ord">Orders Processed</td>
                         <td class="bold-text">3,782</td>
                         <td class="trend-green">▲ +12.4%</td>
                       </tr>
                       <tr>
-                        <td>Operating Margin</td>
+                        <td data-i18n="slide2-td-margin">Operating Margin</td>
                         <td class="bold-text">24.3%</td>
                         <td class="trend-green">▲ +1.5%</td>
                       </tr>
                       <tr>
-                        <td>Retention Rate</td>
+                        <td data-i18n="slide2-td-retention">Retention Rate</td>
                         <td class="bold-text">92.8%</td>
                         <td class="trend-red">▼ -0.4%</td>
                       </tr>
@@ -370,42 +377,34 @@
               
               <div class="slide-visual">
                 <div class="slide-chart-container">
-                  <div class="chart-header-mini">REVENUE DISTRIBUTION BY SERVICE</div>
+                  <div class="chart-header-mini" data-i18n="slide2-chart-title">REVENUE DISTRIBUTION BY SERVICE</div>
                   <div class="donut-chart-wrapper" aria-hidden="true">
                     <svg class="donut-svg" viewBox="0 0 200 200">
                       <!-- Base circle background -->
                       <circle cx="100" cy="100" r="70" fill="transparent" stroke="rgba(255, 255, 255, 0.05)" stroke-width="22"></circle>
                       
-                      <!-- Segment 1: Translation (38% - Orange-red gradient or Neon Cyan) -->
-                      <!-- dasharray = circumference * % = 439.8 * 0.38 = 167 -->
-                      <!-- dashoffset = 0 -->
+                      <!-- Segment 1: Translation (38% - Neon Cyan) -->
                       <circle class="donut-segment segment-1" cx="100" cy="100" r="70" fill="transparent" stroke="var(--cyan)" stroke-width="22" stroke-dasharray="167 440" stroke-dashoffset="0" stroke-linecap="round"></circle>
                       
                       <!-- Segment 2: PPT Design (26% - Neon Lime) -->
-                      <!-- dasharray = 439.8 * 0.26 = 114 -->
-                      <!-- dashoffset = -167 -->
                       <circle class="donut-segment segment-2" cx="100" cy="100" r="70" fill="transparent" stroke="var(--lime)" stroke-width="22" stroke-dasharray="114 440" stroke-dashoffset="-167" stroke-linecap="round"></circle>
                       
                       <!-- Segment 3: Data Entry (18% - Neon Blue) -->
-                      <!-- dasharray = 439.8 * 0.18 = 79 -->
-                      <!-- dashoffset = -281 -->
                       <circle class="donut-segment segment-3" cx="100" cy="100" r="70" fill="transparent" stroke="var(--blue)" stroke-width="22" stroke-dasharray="79 440" stroke-dashoffset="-281" stroke-linecap="round"></circle>
                       
                       <!-- Segment 4: Python Data (18% - Neon Green) -->
-                      <!-- dasharray = 439.8 * 0.18 = 79 -->
-                      <!-- dashoffset = -360 -->
                       <circle class="donut-segment segment-4" cx="100" cy="100" r="70" fill="transparent" stroke="var(--green)" stroke-width="22" stroke-dasharray="79 440" stroke-dashoffset="-360" stroke-linecap="round"></circle>
                     </svg>
                     <div class="donut-center">
                       <span class="donut-number">82%</span>
-                      <span class="donut-label">Target Met</span>
+                      <span class="donut-label" data-i18n="slide2-donut-center-label">Target Met</span>
                     </div>
                   </div>
                   <div class="donut-legend" aria-hidden="true">
-                    <div class="legend-item"><span class="legend-dot segment-1"></span><span>Translation (38%)</span></div>
-                    <div class="legend-item"><span class="legend-dot segment-2"></span><span>PPT Design (26%)</span></div>
-                    <div class="legend-item"><span class="legend-dot segment-3"></span><span>Data Entry (18%)</span></div>
-                    <div class="legend-item"><span class="legend-dot segment-4"></span><span>Python Data (18%)</span></div>
+                    <div class="legend-item"><span class="legend-dot segment-1"></span><span data-i18n="slide2-legend-1">Translation (38%)</span></div>
+                    <div class="legend-item"><span class="legend-dot segment-2"></span><span data-i18n="slide2-legend-2">PPT Design (26%)</span></div>
+                    <div class="legend-item"><span class="legend-dot segment-3"></span><span data-i18n="slide2-legend-3">Data Entry (18%)</span></div>
+                    <div class="legend-item"><span class="legend-dot segment-4"></span><span data-i18n="slide2-legend-4">Python Data (18%)</span></div>
                   </div>
                 </div>
               </div>
@@ -420,14 +419,14 @@
           <!-- Slide 3: Strategy Roadmap -->
           <article class="slide slide-roadmap">
             <div class="slide-header">
-              <span class="slide-tracker">IMPLEMENTATION ROADMAP</span>
+              <span class="slide-tracker" data-i18n="slide3-tracker">IMPLEMENTATION ROADMAP</span>
               <span class="slide-branding">Je Yen Tan • Presentation Studio</span>
             </div>
             
             <div class="slide-body slide-body-full">
               <div class="slide-full-header">
-                <h3>From cleanup to confident delivery.</h3>
-                <p class="slide-desc">Step-by-step methodology detailing client data ingestion, cleaning, layout formatting, and automated validation rules.</p>
+                <h3 data-i18n="slide3-title">From cleanup to confident delivery.</h3>
+                <p class="slide-desc" data-i18n="slide3-desc">Step-by-step methodology detailing client data ingestion, cleaning, layout formatting, and automated validation rules.</p>
               </div>
               
               <div class="roadmap-cards-wrapper" aria-hidden="true">
@@ -440,14 +439,14 @@
                       <span class="indicator-line"></span>
                     </div>
                     <div class="card-status-row">
-                      <span class="status-badge green-badge">Phase 1</span>
+                      <span class="status-badge green-badge" data-i18n="slide3-badge1">Phase 1</span>
                       <span class="status-date">Week 1-2</span>
                     </div>
-                    <h4>Ingestion & Audit</h4>
-                    <p>Import raw datasets, detect duplicate entries, identify translation ambiguities, and lock slide content briefs.</p>
+                    <h4 data-i18n="slide3-card1-title">Ingestion & Audit</h4>
+                    <p data-i18n="slide3-card1-desc">Import raw datasets, detect duplicate entries, identify translation ambiguities, and lock slide content briefs.</p>
                     <ul class="card-checklist">
-                      <li><span class="check-icon">✓</span> Deduplication & schema audit</li>
-                      <li><span class="check-icon">✓</span> Source verification checks</li>
+                      <li><span class="check-icon">✓</span> <span data-i18n="slide3-card1-b1">Deduplication & schema audit</span></li>
+                      <li><span class="check-icon">✓</span> <span data-i18n="slide3-card1-b2">Source verification checks</span></li>
                     </ul>
                   </div>
 
@@ -458,14 +457,14 @@
                       <span class="indicator-line"></span>
                     </div>
                     <div class="card-status-row">
-                      <span class="status-badge blue-badge">Phase 2</span>
+                      <span class="status-badge blue-badge" data-i18n="slide3-badge2">Phase 2</span>
                       <span class="status-date">Week 3</span>
                     </div>
-                    <h4>Layout & Polish</h4>
-                    <p>Apply core design systems, translate source materials, design CSS data-charts, and set widescreen slide margins.</p>
+                    <h4 data-i18n="slide3-card2-title">Layout & Polish</h4>
+                    <p data-i18n="slide3-card2-desc">Apply core design systems, translate source materials, design CSS data-charts, and set widescreen slide margins.</p>
                     <ul class="card-checklist">
-                      <li><span class="check-icon">✓</span> Typographic hierarchy grids</li>
-                      <li><span class="check-icon">✓</span> Trilingual translation matching</li>
+                      <li><span class="check-icon">✓</span> <span data-i18n="slide3-card2-b1">Typographic hierarchy grids</span></li>
+                      <li><span class="check-icon">✓</span> <span data-i18n="slide3-card2-b2">Trilingual translation matching</span></li>
                     </ul>
                   </div>
 
@@ -476,14 +475,14 @@
                       <span class="indicator-line"></span>
                     </div>
                     <div class="card-status-row">
-                      <span class="status-badge gray-badge">Phase 3</span>
+                      <span class="status-badge gray-badge" data-i18n="slide3-badge3">Phase 3</span>
                       <span class="status-date">Week 4</span>
                     </div>
-                    <h4>Verify & Handoff</h4>
-                    <p>Execute automated unit check scripts, perform keyboard-accessibility review, build Pages zip, and deliver final files.</p>
+                    <h4 data-i18n="slide3-card3-title">Verify & Handoff</h4>
+                    <p data-i18n="slide3-card3-desc">Execute automated unit check scripts, perform keyboard-accessibility review, build Pages zip, and deliver final files.</p>
                     <ul class="card-checklist">
-                      <li><span class="uncheck-icon">○</span> Live server responsiveness checks</li>
-                      <li><span class="uncheck-icon">○</span> Direct file package delivery</li>
+                      <li><span class="uncheck-icon">○</span> <span data-i18n="slide3-card3-b1">Live server responsiveness checks</span></li>
+                      <li><span class="uncheck-icon">○</span> <span data-i18n="slide3-card3-b2">Direct file package delivery</span></li>
                     </ul>
                   </div>
                 </div>
@@ -512,26 +511,26 @@
 
     <section id="estimator" class="section-block estimator-section">
       <div class="section-heading">
-        <p>Quote estimator</p>
-        <h2>Get a quick starting budget before you message.</h2>
+        <p data-i18n="calc-pre">Quote estimator</p>
+        <h2 data-i18n="calc-title">Get a quick starting budget before you message.</h2>
       </div>
       <div class="estimator-layout">
         <div class="estimator-options">
           <div class="estimator-group">
-            <label>Select service</label>
+            <label data-i18n="calc-service-label">Select service</label>
             <div class="selector-buttons">
-              <button class="selector-btn active" data-service="translation">Translation</button>
-              <button class="selector-btn" data-service="ppt">PPT slides</button>
-              <button class="selector-btn" data-service="data">Data entry</button>
+              <button class="selector-btn active" data-service="translation" data-i18n="calc-opt-translation">Translation</button>
+              <button class="selector-btn" data-service="ppt" data-i18n="calc-opt-ppt">PPT slides</button>
+              <button class="selector-btn" data-service="data" data-i18n="calc-opt-data">Data entry</button>
             </div>
           </div>
           <div class="estimator-group">
-            <label id="slider-label" for="estimator-slider">Quantity</label>
+            <label id="slider-label" for="estimator-slider" data-i18n="calc-qty-label">Quantity</label>
             <input type="range" class="slider-control" id="estimator-slider" min="100" max="10000" step="100" value="1000">
             <div class="slider-val" id="slider-value-display">1,000 words</div>
           </div>
           <div class="estimator-group">
-            <label>Select currency</label>
+            <label data-i18n="calc-currency-label">Select currency</label>
             <div class="currency-buttons">
               <button class="currency-btn active" data-currency="MYR">RM</button>
               <button class="currency-btn" data-currency="USD">USD</button>
@@ -539,20 +538,20 @@
             </div>
           </div>
           <div class="estimator-note">
-            <strong>Quote notes</strong>
-            <p>Final price depends on source quality, deadline, revision count, and whether files need extra cleanup.</p>
+            <strong data-i18n="calc-notes-title">Quote notes</strong>
+            <p data-i18n="calc-notes-desc">Final price depends on source quality, deadline, revision count, and whether files need extra cleanup.</p>
           </div>
         </div>
         <div class="calculator-display">
-          <div class="calc-label">Estimated budget</div>
+          <div class="calc-label" data-i18n="calc-output-label">Estimated budget</div>
           <div class="price-display" id="price-value">RM 40.00</div>
           <div class="calc-details" id="calc-details-text">
             Estimated budget for English to Chinese/Malay translation at standard rate.
           </div>
           <ul class="calc-checklist">
-            <li>Custom estimate after details</li>
-            <li>Email-ready inquiry generated below</li>
-            <li>No fake checkout or payment flow</li>
+            <li data-i18n="calc-check-1">Custom estimate after details</li>
+            <li data-i18n="calc-check-2">Email-ready inquiry generated below</li>
+            <li data-i18n="calc-check-3">No fake checkout or payment flow</li>
           </ul>
         </div>
       </div>
@@ -562,8 +561,8 @@
       <div class="contact-container">
         <div class="contact-info">
           <div class="section-heading">
-            <p>Contact</p>
-            <h2>Send the task details and I will reply with next steps.</h2>
+            <p data-i18n="contact-pre">Contact</p>
+            <h2 data-i18n="contact-title">Send the task details and I will reply with next steps.</h2>
           </div>
           <a class="contact-item" href="mailto:jeyentan@gmail.com">
             <span class="contact-icon" aria-hidden="true">
@@ -579,8 +578,8 @@
               <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><path d="M9.5 10a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0z"/></svg>
             </span>
             <span class="contact-text">
-              <strong>Location</strong>
-              <span>Penang, Malaysia (MYT)</span>
+              <strong data-i18n="contact-label-location">Location</strong>
+              <span data-i18n="contact-val-location">Penang, Malaysia (MYT)</span>
             </span>
           </div>
           <div class="contact-item">
@@ -588,32 +587,32 @@
               <svg viewBox="0 0 24 24"><path d="M4 7h16M7 4h10M6 7v13h12V7M10 11v5M14 11v5"/></svg>
             </span>
             <span class="contact-text">
-              <strong>Services</strong>
-              <span>Translation, data entry, PowerPoint, Python data</span>
+              <strong data-i18n="contact-label-services">Services</strong>
+              <span data-i18n="contact-val-services">Translation, data entry, PowerPoint, Python data</span>
             </span>
           </div>
         </div>
         <div class="form-card">
           <div class="contact-guide">
-            <strong>Best message format</strong>
-            <p>Tell me the service type, source files, target format, deadline, budget range, and what done should look like.</p>
+            <strong data-i18n="form-guide-title">Best message format</strong>
+            <p data-i18n="form-guide-desc">Tell me the service type, source files, target format, deadline, budget range, and what done should look like.</p>
           </div>
           <form id="contact-form">
             <div class="form-row">
               <div class="form-group row-item">
-                <label for="form-name">Your name *</label>
-                <input type="text" id="form-name" class="form-control" placeholder="Your name" required>
+                <label for="form-name" data-i18n="form-label-name">Your name *</label>
+                <input type="text" id="form-name" class="form-control" data-i18n-placeholder="form-ph-name" placeholder="Your name" required>
               </div>
               <div class="form-group row-item">
-                <label for="form-email">Your email *</label>
-                <input type="email" id="form-email" class="form-control" placeholder="you@example.com" required>
+                <label for="form-email" data-i18n="form-label-email">Your email *</label>
+                <input type="email" id="form-email" class="form-control" data-i18n-placeholder="form-ph-email" placeholder="you@example.com" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="form-message">Project description *</label>
-              <textarea id="form-message" class="form-control" placeholder="Describe the files, languages, slide count, data rows, deadline, and expected output." required></textarea>
+              <label for="form-message" data-i18n="form-label-msg">Project description *</label>
+              <textarea id="form-message" class="form-control" data-i18n-placeholder="form-ph-msg" placeholder="Describe the files, languages, slide count, data rows, deadline, and expected output." required></textarea>
             </div>
-            <button type="submit" class="submit-btn">Prepare email inquiry</button>
+            <button type="submit" class="submit-btn" data-i18n="form-submit-btn">Prepare email inquiry</button>
           </form>
         </div>
       </div>
@@ -632,18 +631,18 @@
       <div class="chat-header">
         <div class="chat-header-title">
           <span class="chat-status-dot"></span>
-          <h4>Contact assistant</h4>
+          <h4 data-i18n="chat-title">Contact assistant</h4>
         </div>
         <button class="chat-close" id="chat-close" aria-label="Close chat">&times;</button>
       </div>
       <div class="chat-messages" id="chat-messages">
-        <div class="message system-msg">
+        <div class="message system-msg" id="chat-welcome-msg" data-i18n="chat-welcome-desc">
           Tell me your service type, file format, deadline, and expected output. I can prepare a clean email for Je Yen.
         </div>
       </div>
       <div class="chat-input-area">
-        <input type="text" id="chat-input" class="chat-input-field" placeholder="Example: 12-slide deck by Friday" autocomplete="off">
-        <button id="chat-send-btn" class="chat-send-button">Send</button>
+        <input type="text" id="chat-input" class="chat-input-field" data-i18n-placeholder="chat-ph-input" placeholder="Example: 12-slide deck by Friday" autocomplete="off">
+        <button id="chat-send-btn" class="chat-send-button" data-i18n="chat-send-btn">Send</button>
       </div>
     </div>
   </div>
