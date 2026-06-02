@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Je Yen Tan | Professional Data Specialist, Translator & Slide Designer</title>
+  <meta name="description" content="Professional portfolio of Je Yen Tan specializing in high-volume data entry, English-Chinese-Malay translation, and premium PowerPoint presentation design.">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">JEYEN<span>.TAN</span></a>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#translation">Translation</a>
+        <a href="#carousel">PPT Showcase</a>
+        <a href="#estimator">Quote Calculator</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="cta-btn">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-badge">AVAILABILITY: OPEN FOR PROJECTS</div>
+    <h1>Hi, I'm <span>Je Yen Tan</span></h1>
+    <div class="typing-container">
+      I am a <span id="typing-text"></span><span class="cursor">|</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#estimator" class="btn-primary">Calculate Quote</a>
+      <a href="#contact" class="btn-secondary">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services">
+    <h2 class="section-title">Professional Services</h2>
+    <div class="card-grid">
+      <!-- 1. Translation Card -->
+      <div class="glass-card">
+        <div class="card-icon icon-blue">🈳</div>
+        <h3>Trilingual Translation</h3>
+        <p>Expert localization and translation between English, Traditional/Simplified Chinese, and Malay. Specializing in document translation, business briefs, and content localized for the Malaysian and regional markets.</p>
+        <div class="card-tags">
+          <span class="tag">English</span>
+          <span class="tag">Chinese (中文)</span>
+          <span class="tag">Malay (Melayu)</span>
+        </div>
+      </div>
+
+      <!-- 2. PPT Design Card -->
+      <div class="glass-card">
+        <div class="card-icon icon-amber">📊</div>
+        <h3>Premium PowerPoint Design</h3>
+        <p>Transforming complex text, charts, and raw data into visually stunning, high-impact PowerPoint presentations. Focus on clean layout hierarchy, professional typography, and corporate presentation guidelines.</p>
+        <div class="card-tags">
+          <span class="tag">PPT Slides</span>
+          <span class="tag">Pitch Decks</span>
+          <span class="tag">Layout Design</span>
+        </div>
+      </div>
+
+      <!-- 3. Data Entry Card -->
+      <div class="glass-card">
+        <div class="card-icon icon-green">💾</div>
+        <h3>High-Volume Data Entry</h3>
+        <p>Fast and accurate manual data entry, copy-paste operations, data cleaning, and spreadsheet organization. Experienced in handling databases and large-volume data input with high attention to detail.</p>
+        <div class="card-tags">
+          <span class="tag">Excel / Sheets</span>
+          <span class="tag">Data Cleaning</span>
+          <span class="tag">Accuracy Check</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Translation Section -->
+  <section id="translation">
+    <h2 class="section-title">Translation Showcase</h2>
+    <p style="text-align: center; color: var(--color-text-muted); max-width: 600px; margin: -20px auto 40px;">
+      Interactive comparison of professional English, Simplified/Traditional Chinese, and Malay translations. Click phrases below to test comparisons.
+    </p>
+    
+    <div class="translator-panel">
+      <!-- English Input (Read Only) -->
+      <div class="translator-box">
+        <div class="translator-header">
+          <span class="lang-label">🇺🇸 English Source</span>
+        </div>
+        <textarea class="translation-content" id="source-text" readonly></textarea>
+      </div>
+
+      <!-- Translations Outputs -->
+      <div class="translator-box">
+        <div class="translator-header" style="border-bottom: 1px solid var(--color-border);">
+          <span class="lang-label" style="color: var(--color-amber);">🇨🇳 Chinese & 🇲🇾 Malay Outputs</span>
+        </div>
+        <div style="padding: 20px; display: flex; flex-direction: column; gap: 20px; min-height: 180px;">
+          <div>
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--color-text-muted); margin-bottom: 4px;">CHINESE (中文):</div>
+            <div id="target-zh" style="color: #fff; font-size: 0.95rem;"></div>
+          </div>
+          <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 16px;">
+            <div style="font-size: 0.8rem; font-family: var(--font-mono); color: var(--color-text-muted); margin-bottom: 4px;">MALAY (BAHASA MELAYU):</div>
+            <div id="target-ms" style="color: #fff; font-size: 0.95rem;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phrase-triggers">
+      <button class="phrase-btn active" data-phrase="welcome">Welcome Text</button>
+      <button class="phrase-btn" data-phrase="instructions">Instructions Phrase</button>
+      <button class="phrase-btn" data-phrase="completion">Completion Status</button>
+    </div>
+  </section>
+
+  <!-- PPT Slide Showcase Carousel -->
+  <section id="carousel">
+    <h2 class="section-title">PowerPoint Slide Layouts</h2>
+    <p style="text-align: center; color: var(--color-text-muted); max-width: 600px; margin: -20px auto 40px;">
+      Interactive slides carousel showing layouts configured for business pitching, technical workflows, and data visualizations.
+    </p>
+
+    <div class="slider-container">
+      <div class="slides">
+        <!-- Slide 1: Market Analysis -->
+        <div class="slide" style="background: linear-gradient(135deg, #111827, #1f2937);">
+          <div style="width: 80%; padding: 40px; text-align: left; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <div style="color: var(--color-blue); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase;">01 / MARKET GROWTH</div>
+            <h3 style="font-size: 2rem; margin-bottom: 16px; color: #fff;">Expanding Regional Market</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 24px; font-size: 0.95rem;">High-precision data entry and bilingual support drives business scalability inside emerging Southeast Asian markets.</p>
+            <div style="display: flex; gap: 24px;">
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); padding: 16px; border-radius: 8px; flex: 1;">
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-green); font-family: var(--font-mono);">+45%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Year-on-Year Growth</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--color-border); padding: 16px; border-radius: 8px; flex: 1;">
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--color-blue); font-family: var(--font-mono);">99.8%</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted);">Accuracy Standard</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Translation Workflow -->
+        <div class="slide" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
+          <div style="width: 80%; padding: 40px; text-align: left; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <div style="color: var(--color-amber); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase;">02 / TRANSLATION PIPELINE</div>
+            <h3 style="font-size: 2rem; margin-bottom: 16px; color: #fff;">Dual-Stage Localisation</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 24px; font-size: 0.95rem;">Ensuring technical correctness in English and contextually natural output in Chinese and Malay languages.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; text-align: center;">
+              <div style="border-right: 1px solid var(--color-border); padding: 8px;">
+                <div style="font-size: 1.1rem; font-weight: 700; color: #fff;">1. Extract</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px;">Context parsing</div>
+              </div>
+              <div style="border-right: 1px solid var(--color-border); padding: 8px;">
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--color-amber);">2. Translate</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px;">Bilingual match</div>
+              </div>
+              <div style="padding: 8px;">
+                <div style="font-size: 1.1rem; font-weight: 700; color: var(--color-green);">3. Validate</div>
+                <div style="font-size: 0.75rem; color: var(--color-text-muted); margin-top: 4px;">Grammar audit</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Database Optimization -->
+        <div class="slide" style="background: linear-gradient(135deg, #050b14, #0b1528);">
+          <div style="width: 80%; padding: 40px; text-align: left; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+            <div style="color: var(--color-green); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 12px; font-weight: 700; text-transform: uppercase;">03 / DATA CLEANING</div>
+            <h3 style="font-size: 2rem; margin-bottom: 16px; color: #fff;">Clean Data, Reliable Results</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 24px; font-size: 0.95rem;">Organizing and validating spreadsheets, cleaning duplicates, and streamlining database imports.</p>
+            <div style="background: rgba(16,185,129,0.05); border: 1px dashed rgba(16,185,129,0.2); padding: 16px; border-radius: 8px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-green);">
+              >>> Import successful: 500 records cleaned, validated, and normalized to data tables. Zero errors found.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Arrows -->
+      <button class="nav-arrow arrow-left">&larr;</button>
+      <button class="nav-arrow arrow-right">&rarr;</button>
+    </div>
+  </section>
+
+  <!-- Quote Estimator Section -->
+  <section id="estimator">
+    <h2 class="section-title">Live Rate Estimator</h2>
+    <p style="text-align: center; color: var(--color-text-muted); max-width: 600px; margin: -20px auto 40px;">
+      Need a project estimate? Select a service below and adjust the parameters to see an instant cost quote for your task.
+    </p>
+
+    <div class="estimator-layout glass-card">
+      <!-- Left: Option selectors -->
+      <div class="estimator-options">
+        <div class="estimator-group">
+          <label>Select Service</label>
+          <div class="selector-buttons">
+            <button class="selector-btn active" data-service="translation">Translation</button>
+            <button class="selector-btn" data-service="ppt">PPT Slide Design</button>
+            <button class="selector-btn" data-service="data">Data Entry</button>
+          </div>
+        </div>
+
+        <div class="estimator-group">
+          <label id="slider-label">Quantity</label>
+          <input type="range" class="slider-control" id="estimator-slider" min="100" max="10000" step="100" value="1000">
+          <div class="slider-val" id="slider-value-display">1,000 words</div>
+        </div>
+      </div>
+
+      <!-- Right: Price Calculator -->
+      <div class="calculator-display">
+        <div class="calc-label">Estimated Budget</div>
+        <div class="price-display" id="price-value">$120.00</div>
+        <div class="calc-details" id="calc-details-text">
+          Estimated budget for English to Chinese/Malay translation at standard rate.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact">
+    <h2 class="section-title">Let's Work Together</h2>
+    <p style="text-align: center; color: var(--color-text-muted); max-width: 600px; margin: -20px auto 40px;">
+      Have a data entry, slide design, or translation task? Fill in the details below and I will get back to you with a custom proposal.
+    </p>
+
+    <div class="contact-container">
+      <!-- Contact details -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-text">
+            <h4>Email Me Directly</h4>
+            <p>tanjeyen@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <h4>Location</h4>
+            <p>Kuala Lumpur, Malaysia (MYT)</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💼</div>
+          <div class="contact-text">
+            <h4>Services Offered</h4>
+            <p>Translation, Data Entry, PowerPoint Design</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form card -->
+      <div class="form-card">
+        <form id="contact-form">
+          <div class="form-row">
+            <div class="form-group row-item">
+              <label for="form-name">Your Name *</label>
+              <input type="text" id="form-name" class="form-control" placeholder="Je Yen Tan" required>
+            </div>
+            <div class="form-group row-item">
+              <label for="form-email">Your Email *</label>
+              <input type="email" id="form-email" class="form-control" placeholder="jeyen@example.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-message">Project Description *</label>
+            <textarea id="form-message" class="form-control" placeholder="Describe the scope of your translation, PowerPoint design, or data entry project..." required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Je Yen Tan. All rights reserved.</p>
+    <p>Powered by the <a href="#">Antigravity AI Agent Framework</a>.</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
