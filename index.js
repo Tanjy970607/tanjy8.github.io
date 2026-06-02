@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initScrollRevealFallback();
   initChatbotWidget();
-  initWorkstationMockup();
 });
 
 // Global Translation Dictionary
@@ -904,27 +903,4 @@ function initChatbotWidget() {
   }
 }
 
-// 9. Workstation Mockup Animation
-function initWorkstationMockup() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const lid = document.querySelector('.laptop-lid');
-    if (lid) lid.style.transform = 'rotateX(0deg)';
-    return;
-  }
 
-  setTimeout(() => {
-    const lid = document.querySelector('.laptop-lid');
-    if (lid) {
-      lid.style.transform = 'rotateX(0deg)';
-    }
-  }, 600);
-
-  window.addEventListener('scroll', () => {
-    const mockup = document.getElementById('workstation-preview');
-    if (!mockup) return;
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const lift = Math.min(24, scrollTop * 0.035);
-    const rotateZ = -7 + Math.min(5, scrollTop * 0.004);
-    mockup.style.transform = `rotateX(${58 - lift}deg) rotateZ(${rotateZ}deg) translateY(${Math.min(22, scrollTop * 0.03)}px)`;
-  });
-}

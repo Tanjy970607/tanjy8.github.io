@@ -79,51 +79,53 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-label="Freelancer workbench preview">
+      <div class="hero-visual" aria-label="Freelancer dashboard preview">
         <div class="ambient-ring"></div>
-        <div class="workstation-mockup" id="workstation-preview">
-          <div class="laptop-lid">
-            <div class="laptop-screen">
-              <div class="screen-topbar">
-                <span></span>
-                <span></span>
-                <span></span>
-                <p>freelancer.pipeline</p>
-              </div>
-              <div class="screen-content">
-                <aside class="screen-sidebar">
-                  <span class="sidebar-dot active"></span>
-                  <span class="sidebar-dot"></span>
-                  <span class="sidebar-dot"></span>
-                  <span class="sidebar-dot"></span>
-                </aside>
-                <div class="screen-main">
-                  <div class="screen-card wide">
-                    <p data-i18n="mockup-queue">Task queue</p>
-                    <strong data-i18n="mockup-status">Ready for review</strong>
-                    <div class="chart-line"></div>
-                  </div>
-                  <div class="screen-grid">
-                    <div class="screen-card">
-                      <p data-i18n="mockup-accuracy">Accuracy</p>
-                      <strong>99.8%</strong>
-                    </div>
-                    <div class="screen-card">
-                      <p data-i18n="mockup-lang">Languages</p>
-                      <strong>EN / ZH / MS</strong>
-                    </div>
-                  </div>
-                  <div class="terminal-card">
-                    <span>&gt; normalize_records()</span>
-                    <span>&gt; translate_brief()</span>
-                    <span class="ok-line">&gt; output_ready: true</span>
-                  </div>
-                </div>
-              </div>
+        <div class="dashboard-mockup" id="dashboard-preview">
+          <!-- Main Window (macOS style app editor) -->
+          <div class="mockup-window main-window">
+            <div class="window-header">
+              <span class="window-dot red"></span>
+              <span class="window-dot yellow"></span>
+              <span class="window-dot green"></span>
+              <span class="window-title">freelancer_workspace.py</span>
+            </div>
+            <div class="window-body">
+              <pre class="code-editor"><code><span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd
+<span class="code-keyword">import</span> localization_api <span class="code-keyword">as</span> loc
+
+<span class="code-comment"># Process translation & files</span>
+engine = loc.Translator(languages=[<span class="code-string">"EN"</span>, <span class="code-string">"ZH"</span>, <span class="code-string">"MS"</span>])
+
+<span class="code-keyword">def</span> <span class="code-fn">process_job</span>(client_file):
+    df = pd.read_excel(client_file)
+    clean_df = df.drop_duplicates()
+    translated = engine.translate(clean_df)
+    <span class="code-keyword">return</span> translated.export_ppt(theme=<span class="code-string">"Keynote"</span>)
+
+<span class="code-keyword">print</span>(<span class="code-string">"Pipeline status: Ready for review"</span>)</code></pre>
             </div>
           </div>
-          <div class="laptop-base">
-            <div class="trackpad"></div>
+
+          <!-- Floating Card 1: Stats & Accuracy -->
+          <div class="mockup-card floating-stats">
+            <div class="card-badge">LIVE</div>
+            <p data-i18n="mockup-accuracy">Accuracy</p>
+            <strong>99.8%</strong>
+            <span class="card-subtext" data-i18n="mockup-validated">Verified checkmarks</span>
+          </div>
+
+          <!-- Floating Card 2: Slide Delivery Status -->
+          <div class="mockup-card floating-status">
+            <p data-i18n="mockup-queue">Task queue</p>
+            <strong data-i18n="mockup-status">Ready for review</strong>
+            <div class="mini-chart">
+              <span class="chart-bar" style="height: 40%"></span>
+              <span class="chart-bar" style="height: 60%"></span>
+              <span class="chart-bar" style="height: 50%"></span>
+              <span class="chart-bar" style="height: 80%"></span>
+              <span class="chart-bar active" style="height: 100%"></span>
+            </div>
           </div>
         </div>
       </div>
