@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteEstimator();
   initContactForm();
   initScrollRevealFallback();
+  initChatbotWidget();
 });
 
 // 1. Typing Animation
@@ -302,5 +303,146 @@ function initScrollRevealFallback() {
       el.classList.add('scroll-reveal-init');
       observer.observe(el);
     });
+  }
+}
+
+// 7. Portfolio Chatbot Widget
+function initChatbotWidget() {
+  const widget = document.getElementById('chat-widget');
+  const trigger = document.getElementById('chat-trigger');
+  const closeBtn = document.getElementById('chat-close');
+  const sendBtn = document.getElementById('chat-send-btn');
+  const inputField = document.getElementById('chat-input');
+  const messagesContainer = document.getElementById('chat-messages');
+
+  if (!widget || !trigger || !closeBtn || !sendBtn || !inputField || !messagesContainer) return;
+
+  // 1. Session Setup
+  let sessionId = localStorage.getItem('chat_session_id');
+  if (!sessionId) {
+    sessionId = 'sess_' + Math.random().toString(36).substring(2, 11) + '_' + Date.now().toString(36);
+    localStorage.setItem('chat_session_id', sessionId);
+  }
+
+  // 2. Load History
+  let chatHistory = [];
+  try {
+    const saved = localStorage.getItem('chat_history');
+    if (saved) {
+      chatHistory = JSON.parse(saved);
+      chatHistory.forEach(msg => {
+        appendMessage(msg.sender, msg.text, false);
+      });
+    }
+  } catch (e) {
+    console.error('Failed to load chat history', e);
+  }
+
+  // 3. Toggle Panel
+  trigger.addEventListener('click', () => {
+    widget.classList.add('active');
+    inputField.focus();
+    scrollToBottom();
+  });
+
+  closeBtn.addEventListener('click', () => {
+    widget.classList.remove('active');
+  });
+
+  // 4. Send Message
+  async function handleSend() {
+    const text = inputField.value.trim();
+    if (!text) return;
+
+    inputField.value = '';
+    appendMessage('visitor', text, true);
+    showTypingIndicator();
+
+    try {
+      const response = await fetch('http://localhost:8787/v1/portfolio/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: sessionId, message: text })
+      });
+      
+      hideTypingIndicator();
+      const data = await response.json();
+      
+      if (data.ok && data.reply) {
+        appendMessage('agent', data.reply, true);
+      } else {
+        appendMessage('agent', "Thanks for your message! I'm having trouble connecting to Je Yen's server right now, but he has been notified and will get back to you shortly.", true);
+      }
+    } catch (err) {
+      console.error(err);
+      hideTypingIndicator();
+      appendMessage('agent', "I'm currently offline and unable to connect to Je Yen's local server. Please reach him directly at jeyentan@gmail.com!", true);
+    }
+  }
+
+  sendBtn.addEventListener('click', handleSend);
+  inputField.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') handleSend();
+  });
+
+  // 5. Short Polling Loop for human replies from Discord
+  async function pollForReplies() {
+    if (!widget.classList.contains('active')) return;
+    try {
+      const response = await fetch(`http://localhost:8787/v1/portfolio/chat/poll?session_id=${sessionId}`);
+      const data = await response.json();
+      if (data.ok && data.replies && data.replies.length > 0) {
+        data.replies.forEach(reply => {
+          appendMessage('agent', reply.text, true);
+        });
+      }
+    } catch (e) {
+      // Ignore polling errors quietly when offline
+    }
+  }
+
+  // Poll every 4 seconds
+  setInterval(pollForReplies, 4000);
+
+  // 6. Helpers
+  function appendMessage(sender, text, save = true) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message', sender === 'visitor' ? 'visitor-msg' : 'agent-msg');
+    msgDiv.textContent = text;
+    
+    // Remove typing indicator if present and append before it
+    const indicator = messagesContainer.querySelector('.typing-indicator');
+    if (indicator) {
+      messagesContainer.insertBefore(msgDiv, indicator);
+    } else {
+      messagesContainer.appendChild(msgDiv);
+    }
+
+    scrollToBottom();
+
+    if (save) {
+      chatHistory.push({ sender, text, timestamp: Date.now() });
+      localStorage.setItem('chat_history', JSON.stringify(chatHistory));
+    }
+  }
+
+  function showTypingIndicator() {
+    if (messagesContainer.querySelector('.typing-indicator')) return;
+    const indicatorDiv = document.createElement('div');
+    indicatorDiv.classList.add('typing-indicator');
+    indicatorDiv.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    messagesContainer.appendChild(indicatorDiv);
+    scrollToBottom();
+  }
+
+  function hideTypingIndicator() {
+    const indicator = messagesContainer.querySelector('.typing-indicator');
+    if (indicator) {
+      indicator.remove();
+    }
+  }
+
+  function scrollToBottom() {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }
 }

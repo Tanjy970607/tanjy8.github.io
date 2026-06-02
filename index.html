@@ -298,6 +298,31 @@
     <p>&copy; 2026 Je Yen Tan. All rights reserved.</p>
   </footer>
 
+  <!-- Chatbot Widget -->
+  <div class="chat-widget" id="chat-widget">
+    <button class="chat-trigger" id="chat-trigger" aria-label="Open Chat">
+      <span class="chat-trigger-icon">💬</span>
+    </button>
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-header">
+        <div class="chat-header-title">
+          <span class="chat-status-dot"></span>
+          <h4>Je Yen's Assistant</h4>
+        </div>
+        <button class="chat-close" id="chat-close" aria-label="Close Chat">&times;</button>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="message system-msg">
+          Hello! I am Je Yen's AI Assistant. Ask me anything about my trilingual translation, PPT design, or data entry services!
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" class="chat-input-field" placeholder="Type a message..." autocomplete="off">
+        <button id="chat-send-btn" class="chat-send-button">Send</button>
+      </div>
+    </div>
+  </div>
+
   <script src="index.js"></script>
 </body>
 </html>
