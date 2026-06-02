@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSlideCarousel();
   initQuoteEstimator();
   initContactForm();
+  initScrollRevealFallback();
 });
 
 // 1. Typing Animation
@@ -273,4 +274,33 @@ function initContactForm() {
     alert(`Thank you, ${name}! Your inquiry has been sent. Je Yen Tan will get back to you shortly.`);
     form.reset();
   });
+}
+
+// 6. Scroll Reveal Fallback
+function initScrollRevealFallback() {
+  if (!CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+    const revealElements = document.querySelectorAll(
+      '.glass-card, .translator-panel, .slider-container, .estimator-layout, .contact-info, .form-card'
+    );
+    
+    const observerOptions = {
+      root: null,
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => {
+      el.classList.add('scroll-reveal-init');
+      observer.observe(el);
+    });
+  }
 }
